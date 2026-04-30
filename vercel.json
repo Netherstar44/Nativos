@@ -1,0 +1,5 @@
+{
+  "buildCommand": "pnpm -r --filter \"@workspace/nativos\" run build",
+  "outputDirectory": "artifacts/nativos/dist/public",
+  "framework": "vite"
+}

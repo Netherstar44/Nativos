@@ -13,7 +13,8 @@ export default function ScrollVideo() {
     const video = videoRef.current;
     if (!video) return;
 
-    // We wait for loadedmetadata so duration is known
+    let stInstance: ScrollTrigger | null = null;
+
     const onLoadedMetadata = () => {
       const duration = video.duration || 1;
 
@@ -26,6 +27,8 @@ export default function ScrollVideo() {
           pin: true,
         }
       });
+      
+      stInstance = tl.scrollTrigger || null;
 
       // Video scrub
       tl.fromTo(video, 
@@ -54,6 +57,10 @@ export default function ScrollVideo() {
         { opacity: 1, y: 0, duration: 0.1 },
         0.7
       ).to(text3Ref.current, { opacity: 0, y: -50, duration: 0.1 }, 0.9);
+
+      // Force GSAP to recalculate all trigger positions since this one was added asynchronously
+      ScrollTrigger.sort();
+      ScrollTrigger.refresh();
     };
 
     video.addEventListener("loadedmetadata", onLoadedMetadata);
@@ -77,7 +84,7 @@ export default function ScrollVideo() {
     return () => {
       video.removeEventListener("loadedmetadata", onLoadedMetadata);
       window.removeEventListener('touchstart', unlockVideo);
-      ScrollTrigger.getAll().forEach(st => st.kill());
+      if (stInstance) stInstance.kill();
     };
   }, []);
 

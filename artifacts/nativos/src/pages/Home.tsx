@@ -12,7 +12,7 @@ import JuiceCompare from "@/components/JuiceCompare";
 
 export default function Home() {
   return (
-    <main className="relative w-full overflow-hidden bg-background">
+    <main className="relative w-full overflow-x-hidden bg-background">
       <Navbar />
       <Hero />
       <FlavorMixer />

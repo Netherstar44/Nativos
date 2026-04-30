@@ -22,7 +22,7 @@ export default function ScrollVideo() {
           trigger: containerRef.current,
           start: "top top",
           end: "+=400%", // 4 screens of scrolling
-          scrub: true,
+          scrub: 1.5,
           pin: true,
         }
       });
@@ -80,7 +80,7 @@ export default function ScrollVideo() {
         preload="auto"
       />
       
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-6 pointer-events-none">
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-6 pointer-events-none drop-shadow-md">
         <div ref={text1Ref} className="absolute text-center opacity-0">
           <h2 className="text-4xl md:text-6xl font-serif mb-4">Natural desde la raíz</h2>
           <p className="text-lg md:text-xl font-light opacity-80">100% fruta colombiana.</p>

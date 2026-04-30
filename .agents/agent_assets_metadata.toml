@@ -1,0 +1,38 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "pEnmn_KuB9Z7NckdKmkIb"
+uri = "file://artifacts/nativos/src/assets/mango-smoothie.png"
+type = "image"
+title = "Mango smoothie on mint surface"
+
+[[generated]]
+id = "rNg_RfqAMuD_xDhVj3uw3"
+uri = "file://artifacts/nativos/src/assets/lulo-smoothie.png"
+type = "image"
+title = "Lulo juice on mint surface"
+
+[[generated]]
+id = "kzkYRWCl6N_sFnSjaj3Ib"
+uri = "file://artifacts/nativos/src/assets/mora-smoothie.png"
+type = "image"
+title = "Mora juice on mint surface"
+
+[[generated]]
+id = "q7L_TP75GhEuwtuLlEJ_-"
+uri = "file://artifacts/nativos/src/assets/andean-landscape.png"
+type = "image"
+title = "Colombian Andean landscape"
+
+[[generated]]
+id = "eqTMvXiX1h0LE9QtSsrvC"
+uri = "file://artifacts/nativos/src/assets/floating-lulo.png"
+type = "image"
+title = "Floating lulo slice"
+
+[[generated]]
+id = "KSEvTLp7LAZSdIdVqi-Oy"
+uri = "file://artifacts/nativos/src/assets/floating-mango.png"
+type = "image"
+title = "Floating mango slice"

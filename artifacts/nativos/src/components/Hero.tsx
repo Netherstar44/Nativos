@@ -65,15 +65,15 @@ export default function Hero() {
       <div className="z-10 text-center max-w-4xl px-6">
         <h1 
           ref={textRef}
-          className="text-6xl md:text-8xl lg:text-[10rem] font-serif leading-[0.9] text-primary tracking-tighter"
+          className="text-6xl md:text-8xl lg:text-[10rem] font-serif leading-[0.9] text-[#e31e24] tracking-tighter drop-shadow-sm"
         >
-          Luz <br/> Andina
+          Nativos
         </h1>
         <p 
           ref={subtextRef}
-          className="mt-8 text-lg md:text-xl text-muted-foreground font-light max-w-lg mx-auto"
+          className="mt-6 text-xl md:text-2xl text-[#009e4f] font-medium max-w-lg mx-auto drop-shadow-sm"
         >
-          Jugos prensados en frío. Creados en nuestro atelier en Medellín con frutas nativas de la cordillera.
+          Naturalmente Activos. <br className="hidden md:block" /> Jugos prensados en frío con frutas 100% naturales.
         </p>
       </div>
     </section>

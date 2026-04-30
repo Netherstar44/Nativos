@@ -15,16 +15,16 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav ref={navRef} className="fixed top-0 left-0 w-full z-50 px-6 py-6 mix-blend-difference text-white flex justify-between items-center pointer-events-auto">
-      <Link href="/" className="text-2xl font-serif tracking-tight cursor-pointer">
-        Nativos
+    <nav ref={navRef} className="fixed top-0 left-0 w-full z-50 px-6 py-3 bg-white/90 backdrop-blur-md shadow-sm flex justify-between items-center pointer-events-auto">
+      <Link href="/" className="cursor-pointer">
+        <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Nativos Logo" className="h-14 w-auto object-contain" />
       </Link>
-      <div className="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
-        <a href="#origen" className="hover:opacity-70 transition-opacity">Origen</a>
-        <a href="#sabores" className="hover:opacity-70 transition-opacity">Sabores</a>
-        <a href="#atelier" className="hover:opacity-70 transition-opacity">Atelier</a>
+      <div className="hidden md:flex space-x-8 text-sm font-bold tracking-wide text-[#009e4f]">
+        <a href="#origen" className="hover:text-[#e31e24] transition-colors">Origen</a>
+        <a href="#sabores" className="hover:text-[#e31e24] transition-colors">Sabores</a>
+        <a href="#atelier" className="hover:text-[#e31e24] transition-colors">Atelier</a>
       </div>
-      <button className="text-sm font-medium px-4 py-2 border border-white/30 rounded-full hover:bg-white hover:text-black transition-colors">
+      <button className="text-sm font-bold px-6 py-2 bg-[#e31e24] text-white rounded-full hover:bg-red-700 transition-colors shadow-md">
         Explorar
       </button>
     </nav>

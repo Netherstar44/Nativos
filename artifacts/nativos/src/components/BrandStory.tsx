@@ -68,7 +68,7 @@ export default function BrandStory() {
               Trabajamos directamente con agricultores de las regiones andinas, seleccionando a mano curubas, lulos y moras. En nuestro atelier, el proceso de prensado en frío extrae la esencia pura de cada ingrediente, preservando sus nutrientes y su vibrante color original.
             </p>
             <p>
-              No es solo jugo. Es un sorbo de luz de la cordillera.
+              No es solo jugo. Es Nativos. Naturalmente Activos.
             </p>
           </div>
         </div>

@@ -68,7 +68,7 @@ export default function ProductGrid() {
           {products.map((product, index) => (
             <div 
               key={product.id}
-              ref={el => cardsRef.current[index] = el}
+              ref={el => { cardsRef.current[index] = el; }}
               className="group relative flex flex-col items-center p-8 rounded-[2rem] bg-white border border-border/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 ease-out overflow-hidden"
             >
               <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${product.color}`} />

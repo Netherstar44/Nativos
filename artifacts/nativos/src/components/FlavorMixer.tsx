@@ -11,6 +11,8 @@ const ingredients = [
 export default function FlavorMixer() {
   const [mixed, setMixed] = useState<string[]>([]);
 
+  const containerRef = useRef<HTMLDivElement>(null);
+
   const handleDragEnd = (event: any, info: any, id: string) => {
     // Check if dropped near the center X
     const centerX = window.innerWidth / 2;
@@ -23,14 +25,14 @@ export default function FlavorMixer() {
 
   return (
     <section className="py-24 px-6 bg-white overflow-hidden relative" id="mixer">
-      <div className="max-w-4xl mx-auto text-center mb-12">
+      <div className="max-w-4xl mx-auto text-center mb-12 relative z-30">
         <h2 className="text-4xl md:text-6xl font-serif text-[#009e4f] mb-4">Crea tu Mezcla</h2>
         <p className="text-lg text-gray-600">Arrastra las frutas hacia la botella central para descubrir tu jugo ideal.</p>
       </div>
 
-      <div className="relative w-full h-[500px] flex items-center justify-center">
+      <div ref={containerRef} className="relative w-full h-[500px] flex items-center justify-center">
         {/* The Bottle Area */}
-        <div className="absolute w-48 h-96 border-4 border-[#009e4f]/20 rounded-[3rem] flex flex-col justify-end overflow-hidden items-center shadow-inner">
+        <div className="absolute w-48 h-96 border-4 border-[#009e4f]/20 rounded-[3rem] flex flex-col justify-end overflow-hidden items-center shadow-inner pointer-events-none">
           <div className="absolute inset-0 bg-gray-50/50 -z-10" />
           {mixed.length > 0 ? (
             <motion.div 
@@ -53,9 +55,11 @@ export default function FlavorMixer() {
           <motion.div
             key={ing.id}
             drag
+            dragConstraints={containerRef}
+            dragElastic={0.2}
             dragSnapToOrigin={!mixed.includes(ing.id)}
             onDragEnd={(e, info) => handleDragEnd(e, info, ing.id)}
-            className="absolute cursor-grab active:cursor-grabbing z-20"
+            className="absolute cursor-grab active:cursor-grabbing z-40 touch-none"
             style={{
               left: i === 0 ? '15%' : 'auto',
               right: i === 1 ? '15%' : 'auto',
@@ -64,10 +68,10 @@ export default function FlavorMixer() {
             whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className="bg-white/80 p-4 rounded-full shadow-lg backdrop-blur-sm border border-gray-100">
+            <div className="bg-white/80 p-4 rounded-full shadow-lg backdrop-blur-sm border border-gray-100 pointer-events-none">
               <img src={ing.img} alt={ing.name} className="w-24 h-24 md:w-32 md:h-32 object-contain filter drop-shadow-md" />
             </div>
-            <p className="text-center mt-4 font-bold text-[#e31e24] uppercase tracking-wider text-sm">{ing.name}</p>
+            <p className="text-center mt-4 font-bold text-[#e31e24] uppercase tracking-wider text-sm pointer-events-none">{ing.name}</p>
           </motion.div>
         ))}
       </div>

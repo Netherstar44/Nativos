@@ -1,16 +1,21 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function OriginMap() {
   const mapRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     if (!mapRef.current) return;
     gsap.fromTo(mapRef.current, 
-      { opacity: 0, x: 50 },
-      { opacity: 1, x: 0, duration: 1, scrollTrigger: {
+      { opacity: 0, y: 50 },
+      { opacity: 1, y: 0, duration: 1, ease: "power2.out", scrollTrigger: {
         trigger: mapRef.current,
-        start: "top 80%"
+        start: "top 85%",
+        toggleActions: "play none none reverse"
       }}
     );
   }, []);

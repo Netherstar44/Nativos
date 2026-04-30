@@ -63,8 +63,20 @@ export default function ScrollVideo() {
       onLoadedMetadata();
     }
 
+    // iOS Safari hack: play and immediately pause to unlock JS control
+    const unlockVideo = () => {
+      video.play().then(() => {
+        video.pause();
+      }).catch(() => {});
+    };
+    
+    // Try to unlock immediately, or on first touch
+    unlockVideo();
+    window.addEventListener('touchstart', unlockVideo, { once: true });
+
     return () => {
       video.removeEventListener("loadedmetadata", onLoadedMetadata);
+      window.removeEventListener('touchstart', unlockVideo);
       ScrollTrigger.getAll().forEach(st => st.kill());
     };
   }, []);
@@ -78,6 +90,7 @@ export default function ScrollVideo() {
         muted
         playsInline
         preload="auto"
+        autoPlay
       />
       
       <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-6 pointer-events-none drop-shadow-md">

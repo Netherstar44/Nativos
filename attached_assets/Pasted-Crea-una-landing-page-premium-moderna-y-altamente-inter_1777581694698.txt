@@ -1,0 +1,95 @@
+Crea una landing page premium, moderna y altamente interactiva para una marca colombiana de bebidas naturales llamada “Nativos”.
+
+🎯 Concepto
+Marca enfocada en jugos, smoothies y batidos naturales
+Ingredientes: frutas tropicales nativas de Colombia
+Sensación:
+Elegante
+Natural
+Sofisticada
+Fresca y moderna
+💻 Tecnologías (OBLIGATORIO)
+Usar TypeScript (estrict mode activado)
+Framework: React + Vite o Next.js
+Animaciones:
+GSAP + ScrollTrigger
+Lenis (smooth scroll)
+Estilos:
+Tailwind CSS o CSS Modules
+🎨 Dirección de arte
+Fondo principal: verde pastel suave (menta claro) inspirado en el material proporcionado
+Paleta:
+Verde hoja
+Amarillo mango
+Naranja tropical
+Rojo fruta
+Blanco crema
+Estilo:
+Minimalista
+Espaciado amplio
+Iluminación tipo estudio
+Glassmorphism sutil
+🧠 UX/UI (MUY IMPORTANTE)
+NO estilo TikTok
+Inspiración:
+Apple
+Awwwards
+Portfolios de diseñadores senior
+🎬 Animaciones (CLAVE)
+
+Implementar scroll-driven animations suaves y elegantes:
+
+El scroll debe controlar:
+Aparición de elementos
+Movimiento de frutas
+Transiciones del producto
+Efectos:
+Parallax sutil
+Fade + translate + scale
+Elementos flotantes
+Microinteracciones refinadas
+🧩 Estructura
+1. Hero Section
+Producto principal centrado (vaso con batido)
+Frutas y botellas flotando alrededor
+Texto:
+“Natural desde la raíz”
+Animación de entrada suave
+2. Experiencia
+Scroll revela ingredientes progresivamente
+Animaciones orgánicas
+Textos:
+“100% natural”
+“Sin conservantes”
+“Origen colombiano”
+3. Productos
+Cards elegantes
+Hover con animaciones suaves
+Diseño tipo catálogo premium
+4. Storytelling
+Historia de la marca
+Enfoque en origen colombiano
+Layout editorial
+5. CTA
+Botón:
+“Explorar sabores”
+Animación elegante
+⚙️ Requisitos técnicos
+Código limpio y modular en TypeScript
+Componentes reutilizables
+Buen manejo de estados
+Lazy loading para imágenes/videos
+Optimización de performance
+Responsive (mobile-first)
+🚫 Evitar
+Animaciones exageradas
+UI saturada
+Estilo redes sociales
+Código sin tipado
+💎 Objetivo final
+
+Crear una web que parezca:
+
+Un sitio de Awwwards
+Un producto premium
+Un proyecto de portafolio de alto nivel

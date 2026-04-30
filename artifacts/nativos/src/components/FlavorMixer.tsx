@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import luloImg from "@/assets/floating-lulo.png";
 import mangoImg from "@/assets/floating-mango.png";

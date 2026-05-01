@@ -14,6 +14,8 @@ export default function ScrollVideo() {
     if (!video) return;
 
     let stInstance: ScrollTrigger | null = null;
+    let reqId: number;
+    let targetTime = 0;
 
     const onLoadedMetadata = () => {
       const duration = video.duration || 1;
@@ -23,19 +25,27 @@ export default function ScrollVideo() {
           trigger: containerRef.current,
           start: "top top",
           end: "+=400%", // 4 screens of scrolling
-          scrub: 1.5,
+          scrub: 0.1, // Reduced inertia to prevent overwhelming decoder
           pin: true,
+          onUpdate: (self) => {
+            targetTime = self.progress * duration;
+          }
         }
       });
       
       stInstance = tl.scrollTrigger || null;
 
-      // Video scrub
-      tl.fromTo(video, 
-        { currentTime: 0 },
-        { currentTime: duration, ease: "none", duration: 1 },
-        0
-      );
+      // Optimize scrubbing: only update currentTime if the browser has finished seeking
+      const updateVideo = () => {
+        if (video && !video.seeking) {
+          // Only update if the difference is significant enough
+          if (Math.abs(video.currentTime - targetTime) > 0.05) {
+            video.currentTime = targetTime;
+          }
+        }
+        reqId = requestAnimationFrame(updateVideo);
+      };
+      updateVideo();
 
       // Text 1
       tl.fromTo(text1Ref.current,
@@ -85,6 +95,7 @@ export default function ScrollVideo() {
       video.removeEventListener("loadedmetadata", onLoadedMetadata);
       window.removeEventListener('touchstart', unlockVideo);
       if (stInstance) stInstance.kill();
+      cancelAnimationFrame(reqId);
     };
   }, []);
 

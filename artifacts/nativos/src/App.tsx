@@ -30,23 +30,26 @@ function App() {
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
+      syncTouch: true,       // Sincroniza touch con ScrollTrigger en móviles
       wheelMultiplier: 1,
       touchMultiplier: 2,
+      autoRaf: false,        // Nosotros controlamos el RAF desde GSAP
     });
 
+    // Conectar Lenis → ScrollTrigger
     lenis.on('scroll', ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
+    // Usar una referencia estable para poder hacer cleanup correctamente
+    const tickerCallback = (time: number) => {
       lenis.raf(time * 1000);
-    });
+    };
 
+    gsap.ticker.add(tickerCallback);
     gsap.ticker.lagSmoothing(0);
 
     return () => {
       lenis.destroy();
-      gsap.ticker.remove((time) => {
-        lenis.raf(time * 1000);
-      });
+      gsap.ticker.remove(tickerCallback);
     };
   }, []);
 

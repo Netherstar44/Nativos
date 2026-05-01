@@ -92,7 +92,7 @@ export default function ScrollVideo() {
     <section ref={containerRef} className="relative w-full h-screen bg-black overflow-hidden" id="origen">
       <video
         ref={videoRef}
-        src={`${import.meta.env.BASE_URL}nativos-hero.mp4`}
+        src={`${import.meta.env.BASE_URL}nativos_scroll.mp4`}
         className="absolute inset-0 w-full h-full object-cover opacity-80"
         muted
         playsInline

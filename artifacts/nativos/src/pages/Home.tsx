@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ScrollVideo from "@/components/ScrollVideo";
+import CanvasVideo from "@/components/CanvasVideo";
 import ProductGrid from "@/components/ProductGrid";
 import BrandStory from "@/components/BrandStory";
 import Footer from "@/components/Footer";
@@ -17,7 +17,7 @@ export default function Home() {
       <Hero />
       <FlavorMixer />
       <OriginMap />
-      <ScrollVideo />
+      <CanvasVideo />
       <ColdPress />
       <JuiceCompare />
       <ProductGrid />
@@ -26,3 +26,4 @@ export default function Home() {
     </main>
   );
 }
+
